@@ -1,3 +1,5 @@
+import devices.Car;
+
 public class Human {
     public Animal pet;
     private Car car;
@@ -39,5 +41,10 @@ public class Human {
         }else{
             System.out.println("You cannot afford this car. Get a job or sth ;)");
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Pet: " + pet + ", car: " + car + ", salary: " + salary;
     }
 }
