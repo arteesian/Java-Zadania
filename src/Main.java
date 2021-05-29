@@ -1,18 +1,15 @@
 import devices.Car;
+import devices.Phone;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new Car("Honda", "Civic").equals(new Car("Honda", "Civic")));
+        Phone phone = new Phone("Xiaomi", "Redmi 8T", 6.2, "android", 2019);
+        Car car = new Car("volkswagen", "golf", 5000.0, 2005);
 
-        Animal dog = new Animal("dog", 5.0);
-        System.out.println(dog);
+        phone.turnOn();
+        car.turnOn();
 
-        Car honda = new Car("Honda", "Civic");
-        Car civic  = new Car("Honda", "Civic");
-
-        System.out.println(honda);
-        System.out.println(civic);
-
-        System.out.println(dog);
+        System.out.println(phone);
+        System.out.println(car);
     }
 }
