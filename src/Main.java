@@ -1,12 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        Animal dog = new Animal("dog", 0.0);
+        Car volk = new Car ("Volkswagen", "Golf");
 
-        dog.Feed();
-        dog.Feed();
-        dog.TakeForAWalk();
-        dog.Feed();
-        dog.TakeForAWalk();
-        dog.TakeForAWalk();
+        Human me = new Human();
+        me.car = volk;
+        System.out.println(me.car.model);
     }
 }
