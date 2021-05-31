@@ -1,6 +1,9 @@
-package com.company;
+package com.company.creatures;
 
-public class Animal implements Sellable{
+import com.company.Human;
+import com.company.Sellable;
+
+public abstract class Animal implements Feedable {
     final String species;
     private Double weight;
 
@@ -33,6 +36,16 @@ public class Animal implements Sellable{
     }
 
     @Override
+    public void feed(){
+        System.out.println("Om nom nom!");
+    }
+
+    @Override
+    public void feed(Double foodWeight){
+        System.out.println("Om nom nom! I have eaten an amount of " + foodWeight);
+    }
+
+    /*@Override
     public void sell (Human seller, Human buyer, Double price){
         if(seller.pet != this){
             System.out.println("You can't sell what you don't own");
@@ -45,6 +58,6 @@ public class Animal implements Sellable{
             seller.pet = null;
             System.out.println("You have sold a pet.");
         }
-    }
+    }*/
 
 }
