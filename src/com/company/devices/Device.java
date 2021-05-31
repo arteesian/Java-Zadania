@@ -1,6 +1,6 @@
-package devices;
+package com.company.devices;
 
-public abstract class Device {
+public abstract class Device{
     final public String producer;
     final public String model;
     final public Integer yearOfProduction;
@@ -21,4 +21,5 @@ public abstract class Device {
                 ", yearOfProduction=" + yearOfProduction +
                 '}';
     }
+
 }

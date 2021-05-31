@@ -1,9 +1,14 @@
-import devices.Car;
+package com.company;
 
-public class Human {
+import com.company.devices.Car;
+import com.company.devices.Phone;
+
+public class Human{
     public Animal pet;
     private Car car;
+    public Phone phone;
     private Double salary;
+    public Double cash;
 
     public Double getSalary() {
         if (salary != null) {
