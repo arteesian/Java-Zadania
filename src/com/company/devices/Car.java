@@ -24,17 +24,20 @@ public abstract class Car extends Device implements Sellable {
     }
 
     @Override
-    public void sell (Human seller, Human buyer, Double price){
-        if(seller.getCar()!= this){
-            System.out.println("You can't sell what you don't own");
-        }else if(buyer.cash < price){
-            System.out.println("You can't afford this");
-        }else{
-            seller.cash += price;
-            buyer.cash -= price;
-            buyer.pet = seller.pet;
-            seller.pet = null;
-            System.out.println("You have sold a car.");
-        }
+    public void sell (Human seller, Human buyer, Double price) throws Exception{
+        if(!seller.hasCar(this))
+            throw new Exception("A seller doesn't have an auto");
+
+        if(!buyer.hasFreeParkingSlot())
+            throw new Exception("A buyer doesn't have space");
+
+        if(buyer.cash < price)
+            throw new Exception("A buyer doesn't have enough cash");
+
+        seller.removeCar(this);
+        buyer.addCar(this);
+        seller.cash += price;
+        buyer.cash -= price;
+        System.out.println("The car has got sold successfully");
     }
 }
