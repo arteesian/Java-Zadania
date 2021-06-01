@@ -8,6 +8,8 @@ import com.company.devices.Phone;
 import java.util.Arrays;
 
 public class Human{
+    public String name, surname;
+    public String fullname;
     public Animal pet;
     private Car car;
     public Car garage[];
@@ -15,8 +17,11 @@ public class Human{
     private Double salary;
     public Double cash;
 
-    public Human(Integer size){
+    public Human(String name, String surname, Integer size){
+        this.name = name;
+        this.surname = surname;
         this.garage = new Car[size];
+        this.fullname = name + " " + surname;
     }
 
     public Double getSalary() {
@@ -50,6 +55,7 @@ public class Human{
             for (int i = 0; i < garage.length; i++){
                 if (garage[i] == null){
                     garage[i] = car;
+                    addOwner(garage[i]);
                     System.out.println("You took a car to the spot " + i);
                     break;
                 }else{
@@ -61,7 +67,10 @@ public class Human{
             System.out.println("The car can be bought for credit");
             for (int i = 0; i < garage.length; i++){
                 if (garage[i] == null){
-                    garage[i] = this.car;
+                    garage[i] = car;
+                    addOwner(garage[i]);
+                    System.out.println("You took a car to the spot " + i);
+                    break;
                 }else{
                     System.out.println("This garage spot is already taken");
                 }
@@ -97,6 +106,13 @@ public class Human{
         return false;
     }
 
+    public boolean isLastOwner(Car car){
+        if(car.ownerlist.get(car.ownerlist.size() - 1) == fullname) {
+            return true;
+        }
+        return false;
+    }
+
     public void sortCar(){
         Arrays.sort(garage, new CarYearProductionComparator());
     }
@@ -115,6 +131,10 @@ public class Human{
                 return;
             }
         }
+    }
+
+    public void addOwner(Car car){
+        car.ownerlist.add(fullname);
     }
 
     @Override
