@@ -15,14 +15,9 @@ public class Phone extends Device implements Sellable {
     public String serverAddress;
     public String[] applist;
 
-    static URL url = null;
-    static {
-        try {
-            url = new URL(null, "https://docs.oracle.com");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    }
+    private static final String DEFAULT_APP_SERVER_URL = "http://127.0.0.1/";
+    private static final String DEFAULT_PROTOCOL = "1080";
+    private static final String DEFAULT_VERSION_NAME = "1.1.5";
 
     public Phone(String producer, String model, Double screenSize, String operationSystem, Integer yearOfProduction){
         super(producer, model, yearOfProduction);
