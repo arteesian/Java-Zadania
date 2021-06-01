@@ -2,35 +2,43 @@ package com.company;
 
 import com.company.creatures.Animal;
 import com.company.creatures.Pet;
-import com.company.devices.Diesel;
-import com.company.devices.Electric;
-import com.company.devices.LPG;
+import com.company.devices.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Human bro = new Human("John" ,"Scott", 3);
         Human me = new Human("Stan" ,"Scott", 3);
-        LPG car = new LPG("a", "b", 100.0, 2005);
-        bro.cash = 0.0;
-        bro.setSalary(200.0);
-        me.cash = 5000.0;
-        me.setSalary(0.0);
-        System.out.println(car.isAnyOwner());
-        car.showHowManyTransactions();
+        me.cash = 500.0;
+        Phone phone = new Phone("Xiaomi", "Redmi 8T", 6.2, "Android", 2019);
+        me.phone = phone;
+        phone.human = me;
 
-        bro.setCar(car);
-        System.out.println(car.isAnyOwner());
-        car.ifWasSold(bro, me);
+        Application app1 = new Application("Angry Birds", "1.0", 30.0);
+        Application app2 = new Application("Camera", "3.5", 0.0);
+        Application app3 = new Application("Facebook", "2.8.12", 0.0);
+        Application app4 = new Application("Tetris", "2.4", 15.0);
+        Application app5 = new Application("Chess", "11.5", 50.0);
 
-        car.sell(bro, me, 3000.0);
-        System.out.println(car.isAnyOwner());
-        car.ifWasSold(bro, me);
+        me.phone.installApplication(app1);
+        me.phone.installApplication(app2);
+        me.phone.installApplication(app3);
+        me.phone.installApplication(app4);
+        me.phone.installApplication(app5);
 
-        car.sell(me, bro, 0.0);
-        car.ifWasSold(me, bro);
+        System.out.println(me.phone.isInstalled(app3));
+        System.out.println(me.phone.isInstalled("Angry Birds"));
+        System.out.println(me.phone.isInstalled("Candy Crush"));
+        System.out.println(me.phone.isInstalled("Facebook"));
+        System.out.println(me.phone.isInstalled("Instagram"));
 
-        car.showOwnerList();
-        car.showHowManyTransactions();
+        me.phone.showFreeApps();
+
+        me.phone.showAppsPrice();
+
+        me.phone.sortByName();
+        me.phone.sortByPrice();
+
+
+
 
     }
 }
